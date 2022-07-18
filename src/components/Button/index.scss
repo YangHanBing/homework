@@ -96,3 +96,16 @@ $warning: #f56c6c;
   padding: 0;
   margin-bottom: 0;
 }
+/**loading动画加载*/
+.icon-loading{
+  animation: loading 2s infinite linear;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

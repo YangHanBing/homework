@@ -2,12 +2,13 @@
   <div id="app">
     <button
       class="zy-button"
-      :disabled="disabled"
+      @click="change"
+      :disabled="disabled || loading"
       :style="[minWidthCss]"
       :class="[theme, isRound, isBorder, isSize, blockCss]"
     >
       <span>
-        <!-- <i v-if="loading" class="iconfont icon-prefix icon-loading"></i> -->
+        <i v-if="loading" class="iconfont icon-prefix icon-loading"></i>
         <i v-if="prefix" class="iconfont icon-prefix" :class="iconPrefix"></i>
         <slot></slot>
         <i v-if="suffix" class="iconfont icon-suffix" :class="iconSuffix"></i>
@@ -42,7 +43,8 @@ export default {
     round: Boolean,
     border: Boolean,
     disabled: Boolean,
-    block: Boolean
+    block: Boolean,
+    loading: Boolean
   },
   computed: {
     theme() {
@@ -69,6 +71,11 @@ export default {
     },
     blockCss() {
       return this.block ? 'zy-button-block' : ''
+    }
+  },
+  methods: {
+    change() {
+      this.$emit('click')
     }
   }
 }
