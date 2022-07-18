@@ -7,8 +7,11 @@
       :class="[theme, isRound, isBorder, isSize]"
     >
       <span>
+      <!-- <i v-if="loading" class="iconfont icon-prefix icon-loading"></i> -->
+      <i v-if="prefix" class="iconfont icon-prefix" :class="iconPrefix"></i>
         <slot></slot>
-      </span>
+      <i v-if="suffix" class="iconfont icon-suffix" :class="iconSuffix"></i>
+    </span>
     </button>
   </div>
 </template>
@@ -27,6 +30,14 @@ export default {
     minWidth: {
       type: String,
       default: '95px'
+    },
+    prefix: {
+      type: String,
+      default: ''
+    },
+    suffix: {
+      type: String,
+      default: ''
     },
     round: Boolean,
     border: Boolean,
@@ -48,6 +59,12 @@ export default {
     minWidthCss() {
       if (!this.minWidth) return ''
       return { 'min-width': this.minWidth }
+    },
+    iconPrefix() {
+      return this.prefix ? `icon-${this.prefix}` : ''
+    },
+    iconSuffix() {
+      return this.suffix ? `icon-${this.suffix}` : ''
     }
   }
 }

@@ -17,6 +17,18 @@ $warning: #f56c6c;
     margin-left: 14px;
     margin-bottom: 10px;
   }
+  > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-prefix {
+    margin-right: 10px;
+  }
+  .icon-suffix {
+    margin-left: 10px;
+  }
 }
 .zy-button-primary {
   background-color: $primary;

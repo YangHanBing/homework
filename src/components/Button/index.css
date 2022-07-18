@@ -17,6 +17,20 @@
   margin-bottom: 10px;
 }
 
+.zy-button > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zy-button .icon-prefix {
+  margin-right: 10px;
+}
+
+.zy-button .icon-suffix {
+  margin-left: 10px;
+}
+
 .zy-button-primary {
   background-color: #409eff;
   border-color: #409eff;
