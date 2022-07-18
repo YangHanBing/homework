@@ -1,0 +1,56 @@
+$primary: #409eff !default;
+$danger: #e6a23c;
+$success: #00d100;
+$warning: #f56c6c;
+.zy-button {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #dcdfe6;
+  height: 40px;
+  padding: 0 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #606266;
+  cursor: pointer;
+  + .zy-button {
+    margin-left: 14px;
+    margin-bottom: 10px;
+  }
+}
+.zy-button-primary {
+  background-color: $primary;
+  border-color: $primary;
+  color: #fff;
+  &.is-border {
+    background-color: transparent;
+    color: $primary;
+  }
+}
+.zy-button-success {
+  background-color: $success;
+  border-color: $success;
+  color: #fff;
+  &.is-border {
+    background-color: transparent;
+    color: $success;
+  }
+}
+.zy-button-danger {
+  background-color: $danger;
+  border-color: $danger;
+  color: #fff;
+  &.is-border {
+    background-color: transparent;
+    color: $danger;
+  }
+}
+.zy-button-warning {
+  background-color: $warning;
+  border-color: $warning;
+  color: #fff;
+  &.is-border {
+    background-color: transparent;
+    color: $warning;
+  }
+}
