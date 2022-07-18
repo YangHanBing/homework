@@ -54,3 +54,10 @@ $warning: #f56c6c;
     color: $warning;
   }
 }
+// 禁用
+.zy-button[disabled]{
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+/*** 圆角 */
+.is-round{border-radius: 100px;}

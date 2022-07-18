@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .zy-button {
   border-width: 1px;
   border-style: solid;
@@ -58,4 +59,14 @@
 .zy-button-warning.is-border {
   background-color: transparent;
   color: #f56c6c;
+}
+
+.zy-button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/*** 圆角 */
+.is-round {
+  border-radius: 100px;
 }

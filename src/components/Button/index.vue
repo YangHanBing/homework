@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <button class="zy-button" :class="[theme]">
+    <button
+      class="zy-button"
+      :disabled="disabled"
+      :class="[theme, isRound, isBorder]"
+    >
       <slot></slot>
     </button>
   </div>
@@ -12,11 +16,20 @@ export default {
     type: {
       type: String,
       default: ''
-    }
+    },
+    round: Boolean,
+    border: Boolean,
+    disabled: Boolean
   },
   computed: {
     theme() {
       return this.type ? `zy-button-${this.type}` : ''
+    },
+    isRound() {
+      return this.round ? 'is-round' : ''
+    },
+    isBorder() {
+      return this.border ? 'is-border' : ''
     }
   }
 }
