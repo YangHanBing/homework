@@ -3,7 +3,7 @@
     <button
       class="zy-button"
       :disabled="disabled"
-      :class="[theme, isRound, isBorder]"
+      :class="[theme, isRound, isBorder, isSize]"
     >
       <slot></slot>
     </button>
@@ -14,6 +14,10 @@
 export default {
   props: {
     type: {
+      type: String,
+      default: ''
+    },
+    size: {
       type: String,
       default: ''
     },
@@ -30,6 +34,9 @@ export default {
     },
     isBorder() {
       return this.border ? 'is-border' : ''
+    },
+    isSize() {
+      return this.size ? `yang-button-${this.size}` : ''
     }
   }
 }

@@ -55,9 +55,25 @@ $warning: #f56c6c;
   }
 }
 // 禁用
-.zy-button[disabled]{
+.zy-button[disabled] {
   cursor: not-allowed;
   opacity: 0.5;
 }
 /*** 圆角 */
-.is-round{border-radius: 100px;}
+.is-round {
+  border-radius: 100px;
+}
+// 按钮尺寸
+.yang-button-medium {
+  height: 38px;
+}
+.yang-button-small {
+  padding: 0 15px;
+  height: 32px;
+  font-size: 12px;
+}
+.yang-button-mini {
+  padding: 0 15px;
+  height: 28px;
+  font-size: 12px;
+}

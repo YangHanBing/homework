@@ -70,3 +70,19 @@
 .is-round {
   border-radius: 100px;
 }
+
+.yang-button-medium {
+  height: 38px;
+}
+
+.yang-button-small {
+  padding: 0 15px;
+  height: 32px;
+  font-size: 12px;
+}
+
+.yang-button-mini {
+  padding: 0 15px;
+  height: 28px;
+  font-size: 12px;
+}
