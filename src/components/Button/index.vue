@@ -3,9 +3,12 @@
     <button
       class="zy-button"
       :disabled="disabled"
+      :style="[minWidthCss]"
       :class="[theme, isRound, isBorder, isSize]"
     >
-      <slot></slot>
+      <span>
+        <slot></slot>
+      </span>
     </button>
   </div>
 </template>
@@ -20,6 +23,10 @@ export default {
     size: {
       type: String,
       default: ''
+    },
+    minWidth: {
+      type: String,
+      default: '95px'
     },
     round: Boolean,
     border: Boolean,
@@ -37,6 +44,10 @@ export default {
     },
     isSize() {
       return this.size ? `yang-button-${this.size}` : ''
+    },
+    minWidthCss() {
+      if (!this.minWidth) return ''
+      return { 'min-width': this.minWidth }
     }
   }
 }
