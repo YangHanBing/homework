@@ -4,6 +4,9 @@ const {
 module.exports = defineConfig({
   transpileDependencies: true,
   devServer: {
-    open: true
+    open: true,
+    port: 9999,
+    https: false,
+    host: 'localhost'
   }
 })

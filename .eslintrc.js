@@ -13,6 +13,7 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'space-before-function-paren': 'off'// prettier 和 ESLint 的冲突问题
+    'space-before-function-paren': 'off', // prettier 和 ESLint 的冲突问题
+    'vue/multi-word-component-names': 'off'
   }
 }
