@@ -85,18 +85,25 @@
   border-radius: 100px;
 }
 
-.yang-button-medium {
+.zy-button-medium {
   height: 38px;
 }
 
-.yang-button-small {
+.zy-button-small {
   padding: 0 15px;
   height: 32px;
   font-size: 12px;
 }
 
-.yang-button-mini {
+.zy-button-mini {
   padding: 0 15px;
   height: 28px;
   font-size: 12px;
+}
+
+.zy-button-block {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0;
 }

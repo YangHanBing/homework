@@ -4,14 +4,14 @@
       class="zy-button"
       :disabled="disabled"
       :style="[minWidthCss]"
-      :class="[theme, isRound, isBorder, isSize]"
+      :class="[theme, isRound, isBorder, isSize, blockCss]"
     >
       <span>
-      <!-- <i v-if="loading" class="iconfont icon-prefix icon-loading"></i> -->
-      <i v-if="prefix" class="iconfont icon-prefix" :class="iconPrefix"></i>
+        <!-- <i v-if="loading" class="iconfont icon-prefix icon-loading"></i> -->
+        <i v-if="prefix" class="iconfont icon-prefix" :class="iconPrefix"></i>
         <slot></slot>
-      <i v-if="suffix" class="iconfont icon-suffix" :class="iconSuffix"></i>
-    </span>
+        <i v-if="suffix" class="iconfont icon-suffix" :class="iconSuffix"></i>
+      </span>
     </button>
   </div>
 </template>
@@ -41,7 +41,8 @@ export default {
     },
     round: Boolean,
     border: Boolean,
-    disabled: Boolean
+    disabled: Boolean,
+    block: Boolean
   },
   computed: {
     theme() {
@@ -65,6 +66,9 @@ export default {
     },
     iconSuffix() {
       return this.suffix ? `icon-${this.suffix}` : ''
+    },
+    blockCss() {
+      return this.block ? 'zy-button-block' : ''
     }
   }
 }
