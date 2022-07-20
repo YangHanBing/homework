@@ -38,13 +38,13 @@
             <slot :name="item.slot_name" :data="scope.row"></slot>
           </template>
         </el-table-column>
-        <el-table-column
+        <!-- <el-table-column
           v-else
           :key="index"
           :prop="item.prop"
           :label="item.label"
           :width="item.width"
-        ></el-table-column>
+        ></el-table-column> -->
       </template>
     </el-table>
   </div>
@@ -88,7 +88,42 @@ export default {
   },
   created() {},
   mounted() {},
-  methods: {}
+  methods: {
+    async getTableList() {
+      const url = this.url
+      if (!url) {
+        throw new Error('url is required')
+      }
+      try {
+        const requestData = {
+          url: this.url,
+          method: this.method
+        }
+        console.log(requestData)
+        if (JSON.stringify(this.data) === '{}') {
+          requestData.data = this.data
+        }
+
+        if (JSON.stringify(this.params) === '{}') {
+          requestData.params = this.params
+        }
+        const res = await this.$axios(requestData)
+        console.log(res)
+        // let data = response.data.data
+        // if (this.format && typeof this.format === 'function') {
+        //   data = this.format(response.data)
+        // }
+        // this.tableData = data
+
+        // this.onLoad && this.$emit('onLoad', response.data)
+      } catch (e) {
+        console.log(e)
+      }
+    },
+    handleRequest() {
+      this.getTableList()
+    }
+  }
 }
 </script>
 <style scoped lang="scss"></style>
