@@ -15,6 +15,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'space-before-function-paren': 'off', // prettier 和 ESLint 的冲突问题
     'vue/multi-word-component-names': 'off',
-    'indent': ['off', 2]
+    'indent': ['off', 2],
+    'vue/no-mutating-props': 'off'
   }
 }

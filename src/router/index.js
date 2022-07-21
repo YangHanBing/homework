@@ -20,6 +20,11 @@ const routes = [{
     path: '/advert',
     name: 'advert',
     component: advert
+  },
+  {
+    path: '/form',
+    name: 'form',
+    component: () => import('@/views/form')
   }
 ]
 
