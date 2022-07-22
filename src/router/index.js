@@ -25,6 +25,11 @@ const routes = [{
     path: '/form',
     name: 'form',
     component: () => import('@/views/form')
+  },
+  {
+    path: '/formview',
+    name: 'formview',
+    component: () => import('@/views/form/formview')
   }
 ]
 
