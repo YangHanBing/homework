@@ -28,8 +28,8 @@ const routes = [{
   },
   {
     path: '/',
-    name: 'echarts',
-    component: () => import('@/views/echarts')
+    name: 'echaets',
+    component: () => import('@/views/echaets')
   }
 ]
 
