@@ -25,6 +25,11 @@ const routes = [{
     path: '/form',
     name: 'form',
     component: () => import('@/views/form')
+  },
+  {
+    path: '/',
+    name: 'echarts',
+    component: () => import('@/views/echarts')
   }
 ]
 
