@@ -12,14 +12,37 @@ import * as echarts from 'echarts'
 export default {
   components: {},
   data() {
-    return {}
+    return {
+      arr1: [],
+      arr2: []
+    }
   },
   created() {},
   mounted() {
+    this.getData()
     this.echarts_bar()
     this.echarts_line()
   },
   methods: {
+    getData() {
+      function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min)
+        max = Math.floor(max)
+        return Math.floor(Math.random() * (max - min + 1)) + min // 含最大值，含最小值
+      }
+      for (let i = 0; i < 10; i++) {
+        let num1 = getRandomIntInclusive(30, 100)
+        num1 = String(parseInt(num1, 10))
+        this.arr1.push(num1)
+      }
+      for (let j = 0; j < 10; j++) {
+        let num2 = getRandomIntInclusive(20, 100)
+        num2 = String(parseInt(num2, 10))
+        this.arr2.push(num2)
+      }
+      console.log(this.arr1) // 生成10个20-50之间的随机数
+      console.log(this.arr2) // 生成10个20-50之间的随机数
+    },
     echarts_bar() {
       const myChart = echarts.init(document.getElementById('bar'))
       // 绘制图表
@@ -42,7 +65,7 @@ export default {
         //   }
         // },
         xAxis: {
-          data: ['张三', '李四', '王五', '赵六', '杨七', '未知'],
+          data: this.arr1,
           type: 'category'
         },
         yAxis: {
@@ -67,12 +90,12 @@ export default {
           {
             name: '语文成绩',
             type: 'bar',
-            data: ['75', '48', '17', '49', '68', '98']
+            data: this.arr1
           },
           {
             name: '数学成绩',
             type: 'bar',
-            data: ['48', '49', '76', '25', '98', '59']
+            data: this.arr2
           }
         ]
       })
@@ -137,12 +160,12 @@ export default {
           {
             name: '1月销售额',
             type: 'line',
-            data: ['75', '48', '17', '49', '68', '98', '75', '48', '17', '49', '68', '98']
+            data: this.arr1
           },
           {
             name: '2月销售额',
             type: 'line',
-            data: ['48', '49', '76', '25', '98', '59', '48', '49', '76', '25', '98', '59']
+            data: this.arr2
           }
         ]
       })

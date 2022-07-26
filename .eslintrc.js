@@ -16,6 +16,7 @@ module.exports = {
     'space-before-function-paren': 'off', // prettier 和 ESLint 的冲突问题
     'vue/multi-word-component-names': 'off',
     'indent': ['off', 2],
+    'no-undef': 'off',
     'vue/no-mutating-props': 'off'
   }
 }
