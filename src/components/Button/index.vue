@@ -57,7 +57,7 @@ export default {
       return this.border ? 'is-border' : ''
     },
     isSize() {
-      return this.size ? `yang-button-${this.size}` : ''
+      return this.size ? `zy-button-${this.size}` : ''
     },
     minWidthCss() {
       if (!this.minWidth) return ''

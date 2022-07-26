@@ -51,6 +51,15 @@
 </template>
 
 <script>
+// 引入封装的controll模块
+const modules = {}
+const files = require.context('../control', true, /index.vue$/i)
+files.keys().forEach((item) => {
+  const key = item.split('/')
+  const name = key[1]
+  modules[`com-${name}`] = files(item).default
+})
+console.log(modules)
 export default {
   components: {},
   props: {

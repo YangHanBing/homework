@@ -30,18 +30,18 @@ export default {
         max = Math.floor(max)
         return Math.floor(Math.random() * (max - min + 1)) + min // 含最大值，含最小值
       }
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 12; i++) {
         let num1 = getRandomIntInclusive(30, 100)
         num1 = String(parseInt(num1, 10))
         this.arr1.push(num1)
       }
-      for (let j = 0; j < 10; j++) {
+      for (let j = 0; j < 12; j++) {
         let num2 = getRandomIntInclusive(20, 100)
         num2 = String(parseInt(num2, 10))
         this.arr2.push(num2)
       }
-      console.log(this.arr1) // 生成10个20-50之间的随机数
-      console.log(this.arr2) // 生成10个20-50之间的随机数
+      console.log(this.arr1) // 生成12个20-50之间的随机数
+      console.log(this.arr2) // 生成12个20-50之间的随机数
     },
     echarts_bar() {
       const myChart = echarts.init(document.getElementById('bar'))

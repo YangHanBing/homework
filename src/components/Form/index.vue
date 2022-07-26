@@ -3,27 +3,22 @@
     <el-form ref="form" :model="field" label-width="80px">
       <template v-for="item in formItem">
         <el-form-item
-          v-if="item.type === 'input'"
           :rules="item.rules"
           :key="item.label"
           :label="item.label"
           :prop="item.prop"
         >
-          <el-input v-model="field[item.prop]"></el-input>
-        </el-form-item>
-        <el-form-item
-          v-if="item.type === 'select'"
-          :rules="item.rules"
-          :key="item.label"
-          :label="item.label"
-          :prop="item.prop"
-        >
-          <el-select v-model="field[item.prop]"></el-select>
+          <component
+            :value.sync="field[item.prop]"
+            :config="item"
+            :is="!item.type ? 'com-text' : `com-${item.type}`"
+          ></component>
         </el-form-item>
       </template>
       <el-form-item>
         <el-button
           @click="handleButton(item)"
+          :loading="item.loading"
           v-for="item in button"
           v-bind="item"
           :key="item.key"
@@ -36,6 +31,15 @@
 
 <script>
 import createRules from './createRules'
+// 引入封装的controll模块
+const modules = {}
+const files = require.context('../control', true, /index.vue$/i)
+files.keys().forEach((item) => {
+  const key = item.split('/')
+  const name = key[1]
+  modules[`com-${name}`] = files(item).default
+})
+console.log(modules)
 export default {
   name: 'zyForm',
   props: {
@@ -54,9 +58,10 @@ export default {
     button: {
       type: Array,
       default: () => []
-    }
+    },
+    beforeSubmit: Function
   },
-  components: {},
+  components: { ...modules },
   data() {
     return { formItem: [] }
   },
