@@ -2,13 +2,14 @@
   <div>
     <div id="bar"></div>
     <div id="line"></div>
-    <div id="main"></div>
+    <div id="scatter"></div>
   </div>
 </template>
 
 <script>
 // 引入echarts
 import * as echarts from 'echarts'
+import { ScatterData } from './data'
 export default {
   components: {},
   data() {
@@ -22,6 +23,7 @@ export default {
     this.getData()
     this.echarts_bar()
     this.echarts_line()
+    this.echarts_scatter()
   },
   methods: {
     getData() {
@@ -43,6 +45,7 @@ export default {
       console.log(this.arr1) // 生成12个20-50之间的随机数
       console.log(this.arr2) // 生成12个20-50之间的随机数
     },
+    // 柱状图
     echarts_bar() {
       const myChart = echarts.init(document.getElementById('bar'))
       // 绘制图表
@@ -100,6 +103,7 @@ export default {
         ]
       })
     },
+    // 折线图
     echarts_line() {
       const myChart = echarts.init(document.getElementById('line'))
       // 绘制图表
@@ -169,6 +173,67 @@ export default {
           }
         ]
       })
+    },
+    // 波点图
+    echarts_scatter() {
+      const axisData = []
+      for (let i = 0; i < ScatterData.length; i++) {
+        const height = ScatterData[i].height
+        const weight = ScatterData[i].weight
+        const newArr = [height, weight]
+        axisData.push(newArr)
+      }
+      console.log(axisData)
+      const mCharts = echarts.init(document.getElementById('scatter'))
+      const option = {
+        xAxis: {
+          type: 'value',
+          scale: true
+        },
+        yAxis: {
+          type: 'value',
+          scale: true
+        },
+        series: [
+          {
+            // type: 'scatter',
+            type: 'effectScatter', // 指明图表为带涟漪动画的散点图
+            showEffectOn: 'emphasis', // 出现涟漪动画的时机 render emphasis
+            rippleEffect: {
+              scale: 10 // 涟漪动画时, 散点的缩放比例
+            },
+            data: axisData,
+            // symbolSize: 30
+            symbolSize: function (arg) {
+              // 控制散点的大小
+              // console.log(arg)
+              const height = arg[0] / 100
+              const weight = arg[1]
+              // bmi = 体重kg / (身高m*身高m)   大于28,就代表肥胖
+              const bmi = weight / (height * height)
+              if (bmi > 28) {
+                return 15
+              }
+              return 10
+            },
+            itemStyle: {
+              // 控制散点的样式
+              color: function (arg) {
+                // console.log(arg)
+                const height = arg.data[0] / 100
+                const weight = arg.data[1]
+                // bmi = 体重kg / (身高m*身高m)   大于28,就代表肥胖
+                const bmi = weight / (height * height)
+                if (bmi > 28) {
+                  return 'red'
+                }
+                return 'green'
+              }
+            }
+          }
+        ]
+      }
+      mCharts.setOption(option)
     }
   }
 }
@@ -180,6 +245,11 @@ export default {
   margin: 100px auto;
 }
 #line {
+  width: 800px;
+  height: 500px;
+  margin: 100px auto;
+}
+#scatter {
   width: 800px;
   height: 500px;
   margin: 100px auto;

@@ -17,6 +17,8 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
     'indent': ['off', 2],
     'no-undef': 'off',
-    'vue/no-mutating-props': 'off'
+    'vue/no-mutating-props': 'off',
+    'quote-props': 'off',
+    'quotes': 'off'
   }
 }
