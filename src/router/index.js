@@ -45,9 +45,15 @@ const routes = [
   },
   // checkbox和验证码倒计时封装
   {
-    path: '/form_code',
+    path: '/code',
     name: 'form_code',
     component: () => import('@/views/form/form_code')
+  },
+  // 文件上传封装
+  {
+    path: '/upload',
+    name: 'upload',
+    component: () => import('@/views/upload')
   }
 ]
 
